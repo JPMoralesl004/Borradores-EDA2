@@ -1,11 +1,24 @@
-class Frame1 {
-    private char[][] contenido;
-    
-    public Frame1(int width, int height) {
-        contenido = new char[height][width];
+public class Frame1 {
+    char[][] contenido;
+
+    public Frame1(int ancho, int alto) {
+        contenido = new char[][] {
+                { '.', '.', '.', '#', '#', '.', '.' },
+                { '+', '+', '.', '.', '.', '.', '.' },
+                { '#', '#', '#', '.', '.', '.', '.' }
+        };
     }
-    
-    public char[][] getContenido() {
-        return contenido;
+
+    public void posicionFrame(Pixel pixel) {
+        contenido = pixel.listaElementos();
+    }
+
+    public void posicionFrame() {
+        for (char[] fila : contenido) {
+            for (char pixel : fila) {
+                System.out.print(pixel + " ");
+            }
+            System.out.println();
+        }
     }
 }
