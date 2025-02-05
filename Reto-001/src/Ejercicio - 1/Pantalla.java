@@ -1,16 +1,29 @@
-class Pantalla {
+public class Pantalla {
     @SuppressWarnings("unused")
-    private String nombre;
-    
-    public Pantalla(String nombre) {
-        this.nombre = nombre;
+    private String clase;
+
+    public Pantalla(String clase) {
+        this.clase = clase;
     }
-    
-    public Frame1 getFrame1(int width, int height) {
-        return new Frame1(width, height);
+
+    public void getFrame(Frame1 frame1, Frame2 frame2, ResultadoVisual resultado) {
+        System.out.println("Mostrando Frame 1:");
+        frame1.posicionFrame();
+
+        System.out.println("Mostrando Frame 2:");
+        frame2.posicionFrame();
+
+        System.out.println("Mostrando Resultado Combinado:");
+        resultado.combinar(frame1, frame2);
     }
-    
-    public Frame2 getFrame2(int width, int height) {
-        return new Frame2(width, height);
+
+    public static void main(String[] args) {
+        Pantalla pantalla = new Pantalla("Pantalla");
+
+        Frame1 frame1 = new Frame1(3, 7);
+        Frame2 frame2 = new Frame2(3, 7);
+        ResultadoVisual resultado = new ResultadoVisual(3, 7);
+
+        pantalla.getFrame(frame1, frame2, resultado);
     }
 }
