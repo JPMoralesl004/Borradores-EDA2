@@ -1,0 +1,46 @@
+@startuml
+
+class Pantalla {
+  - string nombre
+  + getFrame()
+}
+
+class Compuestos {
+  - char[][]
+  - Lista Colores
+}
+
+class Pixel {
+  - char[][]
+  + listaElementos()
+}
+
+class Buffer {
+  + mostrarFrameEscogido()
+}
+
+class Frame1 {
+  - char[][] contenido
+  + Posiciòn Frame (Pixel)
+}
+
+class Frame2 {
+  - char[][] contenido
+  + Posiciòn Frame (Pixel)
+}
+
+class ResultadoVisual {
+  - char[][] contenido
+  + combinar (Frame1, Frame2)
+}
+
+Frame1 --> ResultadoVisual
+Frame2 --> ResultadoVisual
+Pixel --> Frame1
+Pixel --> Frame2
+Buffer --> ResultadoVisual
+Pantalla --> Buffer
+Compuestos --> Frame1
+Compuestos --> Frame2
+
+@enduml
