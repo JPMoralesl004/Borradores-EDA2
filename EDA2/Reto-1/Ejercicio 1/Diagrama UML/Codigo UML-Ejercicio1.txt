@@ -2,38 +2,50 @@
 
 class Pantalla {
   - string nombre
-  + getFrame()
+  - string nombre
+  + char[][] getFrame()
+  + char[][] getFrame()
 }
 
 class Pixel {
   - char[][]
-  + listaElementos()
+  - char[][]
+  + char[][] listaElementos()
+  + char[][] listaElementos()
 }
 
 class Buffer {
-  + mostrarFrameEscogido()
+  + void mostrarFrameSeleccionado()
+  + void mostrarFrameSeleccionado()
 }
 
 class Frame1 {
-  - char[][] contenido
-  + Posiciòn Frame (Pixel)
+  - char[][]
+  + Pixel posicion
+  - char[][]
+  + Pixel posicion
 }
 
 class Frame2 {
-  - char[][] contenido
-  + Posiciòn Frame (Pixel)
+  - char[][]
+  + Pixel posicion
+  - char[][]
+  + Pixel posicion
 }
 
 class ResultadoVisual {
-  - char[][] contenido
-  + combinar (Frame1, Frame2)
+  - char[][]
+  - char[][]
+  + char[][] fusionarFrames(Frame1, Frame2)
+  + char[][] fusionarFrames(Frame1, Frame2)
 }
 
-Frame1 --> ResultadoVisual
-Frame2 --> ResultadoVisual
-Pixel --> Frame1
-Pixel --> Frame2
-Buffer --> ResultadoVisual
-Pantalla --> Buffer
+' Relaciones con multiplicidad
+Pantalla "1" --> "1..*" Buffer
+Buffer "1..*" --> "1..*" ResultadoVisual
+Frame1 "1" --> "1" ResultadoVisual
+Frame2 "1" --> "1" ResultadoVisual
+Pixel "1..*" --> "1" Frame1
+Pixel "1..*" --> "1" Frame2
 
 @enduml
