@@ -1,51 +1,48 @@
 @startuml
 
 class Pantalla {
-  - string nombre
-  - string nombre
-  + char[][] getFrame()
-  + char[][] getFrame()
+  -String clase
+  +Pantalla(String)
+  +iniciarAplicacion()
+  +getFrame(Frame1 frame1, Frame2 frame2, ResultadoVisual resultado)
 }
 
 class Pixel {
   - char[][]
-  - char[][]
-  + char[][] listaElementos()
-  + char[][] listaElementos()
+  + Pixel (int ancho, int alto)
+  + listaElementos(): char[][]
 }
 
 class Buffer {
-  + void mostrarFrameSeleccionado()
-  + void mostrarFrameSeleccionado()
+  + void mostrarFrameSeleccionado(Frame1 frame1, Frame2 frame2, ResultadoVisual resultado)
 }
 
 class Frame1 {
   - char[][]
-  + Pixel posicion
-  - char[][]
-  + Pixel posicion
+  + Frame1(int ancho, int alto)
+  + posicionFrame (Pixel pixel)
+  + posicionFrame()
 }
 
 class Frame2 {
   - char[][]
-  + Pixel posicion
-  - char[][]
-  + Pixel posicion
+  + Frame2 (int ancho, int alto)
+  + posicionFrame (Pixel pixel)
+  + posicionFrame()
 }
 
 class ResultadoVisual {
   - char[][]
-  - char[][]
-  + char[][] fusionarFrames(Frame1, Frame2)
-  + char[][] fusionarFrames(Frame1, Frame2)
+  + ResultadoVisual(int ancho, int alto)
+  + combinar (Frame1 frame1, Frame2 frame2)
 }
 
 ' Relaciones con multiplicidad
-Pantalla "1" --> "1..*" Buffer
-Buffer "1..*" --> "1..*" ResultadoVisual
-Frame1 "1" --> "1" ResultadoVisual
-Frame2 "1" --> "1" ResultadoVisual
-Pixel "1..*" --> "1" Frame1
-Pixel "1..*" --> "1" Frame2
+Pantalla --> Buffer
+Buffer --> ResultadoVisual
+Frame1 --> ResultadoVisual
+Frame2 --> ResultadoVisual
+Pixel  --> Frame1
+Pixel --> Frame2
 
 @enduml
