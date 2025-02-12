@@ -69,9 +69,7 @@ ListaCircularFrames --> Resolucion
 Frame --> Pixel
 Frame --> Coordenada
 Frame --> Resolucion
-Frame --> ArrayDeque
 Pixel --> Coordenada
 Demo --> GestorPantalla
-Demo --> Random
 
 @enduml
