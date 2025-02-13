@@ -27,14 +27,23 @@ class ListaCircularFrames {
 }
 
 class Frame {
-  - pixeles: ArrayDeque<Pixel[]>
+  - pixeles: PixelConCoordenada[][]
   + Frame(resolucion: Resolucion)
-  + obtenerPixel(coordenada: Coordenada): Pixel
+  + obtenerPixel(coordenada: Coordenada): PixelConCoordenada
   + establecerPixel(coordenada: Coordenada, color: int)
 }
 
 class Pixel {
   - color: int
+  + establecerColor(color: int)
+  + obtenerColor(): int
+}
+
+class PixelConCoordenada {
+  - coordenada: Coordenada
+  - color: int
+  + PixelConCoordenada(coordenada: Coordenada, color: int)
+  + obtenerCoordenada(): Coordenada
   + establecerColor(color: int)
   + obtenerColor(): int
 }
@@ -55,10 +64,6 @@ class Resolucion {
   + obtenerAlto(): int
 }
 
-class Demo {
-  + main(args: String[])
-}
-
 GestorPantalla --> PantallaEntrelazada
 GestorPantalla --> Coordenada
 PantallaEntrelazada --> ListaCircularFrames
@@ -66,10 +71,10 @@ PantallaEntrelazada --> Coordenada
 PantallaEntrelazada --> Resolucion
 ListaCircularFrames --> Frame
 ListaCircularFrames --> Resolucion
-Frame --> Pixel
+Frame --> PixelConCoordenada
 Frame --> Coordenada
 Frame --> Resolucion
-Pixel --> Coordenada
-Demo --> GestorPantalla
+PixelConCoordenada --> Coordenada
+PixelConCoordenada --> Pixel
 
 @enduml
